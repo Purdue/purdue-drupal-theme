@@ -1,0 +1,21 @@
+
+<div class="videos-library-page__hero">
+  {% for key,row in view.result %}
+    {% set bg_image = view.style_plugin.getField(key, 'field_image') %}
+    {% set video_link = view.style_plugin.getField(key, 'view_node') %}
+    <figure class='videos-library-page__hero_figure' style="background-image: url( {{ bg_image|split('"')[3] }} )">
+      <div class="container">
+        <div class="videos-library-page__hero_figure_desc column is-half is-offset-half">
+          <h4 class='videos-library-page__hero_figure_desc_subtitle'><span>{{ 'Featured Video' }}</span></h4>
+          <h3 class='videos-library-page__hero_figure_desc_title'>{{ view.style_plugin.getField(key, 'title') }}</h3>
+          <p class='videos-library-page__hero_figure_desc_text'>{{ view.style_plugin.getField(key, 'field_video_description') }}</p>
+          <p>
+            <a href="{{ video_link|split('"')[1] }}" class="watch_button">
+              <span>{{ video_link|striptags }}</span>
+            </a>
+          </p>
+        </div>
+      </div>
+    </figure>
+  {% endfor %}
+</div>

@@ -1,0 +1,23 @@
+name: Purdue Drupal Theme
+description: Custom Drupal 8.x theme for Purdue University
+type: theme
+core: 8.x
+core_version_requirement: ^8 || ^9
+libraries:
+  - purdue-drupal-theme/global-css
+  - purdue-drupal-theme/global-js
+regions:
+  header: 'Header'
+  brand: 'Brand'
+  search_nav: 'Navigation Area Search Box'
+  breadcrumbs: 'Site Breadcrumbs'
+  main_navigation: 'Main Navigation'
+  sidebar_right: 'Right Sidebar'
+  content: 'Content'
+  footer: 'Footer'
+  footer_col_one: 'Footer First Column'
+  footer_col_two: 'Footer Second Column'
+  footer_col_three: 'Footer Third Column'
+  footer_col_four: 'Footer Fourth Column'
+  footer_col_five: 'Footer Fifth Column'
+  footer_copy: 'Footer Copyright Area'

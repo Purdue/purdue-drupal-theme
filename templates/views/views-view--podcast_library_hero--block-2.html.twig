@@ -1,0 +1,16 @@
+
+<div class="videos-library-page__top-videos">
+  <div class="container">
+    <h4 class='videos-library-page__top-videos_subtitle'><span>{{ 'Top Episodes' }}</span></h4>
+    {% for key,row in view.result %}
+      <div class="videos-library-page__top-videos_video">
+        {% set image = view.style_plugin.getField(key, 'field_image') %}
+        {% set video_link = view.style_plugin.getField(key, 'view_node') %}
+        <a class="watch_button" href="{{ video_link|split('"')[1] }}" >
+          <figure class='videos-library-page__top-videos_video_figure' style="background-image: url( {{ image|split('"')[3] }} )"></figure>
+        </a>
+        <h4 class='videos-library-page__top-videos_video_title'>{{ view.style_plugin.getField(key, 'title') }}</h4>
+      </div>
+    {% endfor %}
+  </div>
+</div>

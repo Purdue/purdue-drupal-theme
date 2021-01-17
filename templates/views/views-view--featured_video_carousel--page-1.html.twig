@@ -1,0 +1,26 @@
+
+<div class="videos-library-page__content">
+  <div class="container videos-library-page__content_filters">
+    {{ exposed }}
+  </div>
+  <div class="container videos-library-page__content_body">
+    {% for key,row in view.result %}
+      {% set bg_image = view.style_plugin.getField(key, 'field_image') %}
+      {% set video_link = view.style_plugin.getField(key, 'title') %}
+      {% set video_link = view.style_plugin.getField(key, 'view_node') %}
+      <div class="videos-library-page__content_item">
+        <a href="{{ video_link|split('"')[1] }}">
+          <figure class='videos-library-page__content_figure' style="background-image: url( {{ bg_image|split('"')[3] }} )">
+            <i class="far fa-play-circle"></i>
+          </figure>
+        </a>
+          <h6 class='videos-library-page__content_category'>{{ view.style_plugin.getField(key, 'field_topic') }}</h6>
+          <div class='videos-library-page__content_date'>{{ view.style_plugin.getField(key, 'created') }}</div>
+          <h3 class='videos-library-page__content_title'>{{ view.style_plugin.getField(key, 'title') }}</h3>
+          <a href="{{ video_link|split('"')[1] }}" class="watch_button">
+            <span><i class="fas fa-play"></i></span>
+          </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
